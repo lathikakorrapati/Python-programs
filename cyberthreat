@@ -1,0 +1,56 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+data = pd.read_csv(r'C:\Users\hp\Downloads\cyber_attacks.csv', parse_dates=['Date'])
+print("Data Preview:")
+print(data.head())
+summary_stats = data.groupby("Region").agg(
+    Total_Attacks=("Attacks", "sum"),
+    Average_Attacks=("Attacks", "mean")
+).reset_index()
+print("\nSummary Statistics by Region:")
+print(summary_stats)
+plt.figure(figsize=(10, 5))
+sns.lineplot(data=data, x="Date", y="Attacks", marker="o", color="blue")
+plt.title("Monthly Cyber Attacks Over Time")
+plt.xlabel("Date")
+plt.ylabel("Number of Attacks")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+plt.figure(figsize=(8, 5))
+sns.barplot(data=summary_stats, x="Region", y="Total_Attacks", palette="Set2")
+plt.title("Total Cyber Attacks by Region")
+plt.xlabel("Region")
+plt.ylabel("Total Attacks")
+plt.tight_layout()
+plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+data = pd.read_csv(r'C:\Users\hp\Downloads\cyber_attacks.csv', parse_dates=['Date'])
+print("Data Preview:")
+print(data.head())
+summary_stats = data.groupby("Region").agg(
+    Total_Attacks=("Attacks", "sum"),
+    Average_Attacks=("Attacks", "mean")
+).reset_index()
+print("\nSummary Statistics by Region:")
+print(summary_stats)
+plt.figure(figsize=(10, 5))
+sns.lineplot(data=data, x="Date", y="Attacks", marker="o", color="blue")
+plt.title("Monthly Cyber Attacks Over Time")
+plt.xlabel("Date")
+plt.ylabel("Number of Attacks")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+plt.figure(figsize=(8, 5))
+sns.barplot(data=summary_stats, x="Region", y="Total_Attacks", palette="Set2")
+plt.title("Total Cyber Attacks by Region")
+plt.xlabel("Region")
+plt.ylabel("Total Attacks")
+plt.tight_layout()
+plt.show()
+
